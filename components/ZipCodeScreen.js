@@ -1,6 +1,6 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { View, Text, FlatList, TouchableHighlight } from 'react-native';
+import { View, Text, FlatList, TouchableHighlight,StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 const availableZipItems = [
@@ -14,8 +14,8 @@ const availableZipItems = [
 const ZipItem = ({ place, code, navigation }) => (
     <TouchableHighlight onPress={() => navigation.navigate('Weather', { zipCode: code })}>
         <View>
-            <Text>{place}</Text>
-            <Text>{code}</Text>
+            <Text style={styles.Font}>{place}</Text>
+            <Text style={styles.Font}>{code}</Text>
         </View>
     </TouchableHighlight>
 )
@@ -37,3 +37,10 @@ export default function ZipCodeScreen() {
     );
 
 }
+const styles = StyleSheet.create({
+    Font: {
+       color: 'Blue',
+       fontSize: 40,
+       alignItems: 'center'
+    }
+});
